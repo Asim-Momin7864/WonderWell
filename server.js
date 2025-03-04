@@ -15,12 +15,27 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./model/user.js");
 const { userProfile } = require("./controllers/users.js");
-
+const DB_url = process.env.ATLASDB_URL;
 // session
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
+
+const store = MongoStore.create({
+  mongoUrl: DB_url,
+  crypto: {
+    secret: process.env.SECRET_KEY,
+  },
+  touchAfter: 24 * 3600,
+});
+
+// error handling for store
+store.on("error", (err) => {
+  console.log("ERROR in MONGO SESSION STORE", err);
+})
+
 app.use(
   session({
-    secret: "mySuperSecredKey",
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -71,7 +86,6 @@ app.use(express.static(path.join(__dirname, "public/css/")));
 app.use(express.static(path.join(__dirname, "public/js/")));
 app.use(express.static(path.join(__dirname, "public/assets/")));
 
-const DB_url = process.env.ATLASDB_URL;
 // setup database
 async function main() {
   try {
