@@ -1,0 +1,326 @@
+<% layout("./layouts/layout.ejs") -%>
+
+<div class="container flex-grow-1">
+  <div class="row">
+    <img
+      src="<%=detailListing.image.url%>"
+      alt="listing image"
+      class="col-12 col-lg-10 offset-lg-1 col-xl-12 offset-xl-0 img-r1c1"
+    />
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 mt-3">
+    <div class="col-12 col-md-8">
+      <div class="col-12 py-2 px-1">
+        <h2 style="margin-bottom: 0"><%= detailListing.title %></h2>
+        <p class="text-muted" style="margin-bottom: 0">
+          📍 <%= detailListing.location %>
+        </p>
+        <p class="text-body-tertiary fs-6 text" style="margin-bottom: 0">
+          2 Bedrooms, 2 Bathrooms
+        </p>
+      </div>
+      <div class="col-12 py-2 px-1 my-2 col-xl-10">
+        <div class="col first-rating-panel">
+          <div class="first-rating-panel-box-1">
+            <h4 style="margin-bottom: 0"><%= detailListing.ratingAvg %></h4>
+            <p style="margin-bottom: 0">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          </div>
+          <div class="first-rating-panel-box-2">
+            <i class="fa-solid fa-heart"></i>
+            <h6 style="margin-bottom: 0">Guest</h6>
+            <h6 style="margin-bottom: 0">favourite</h6>
+          </div>
+          <div class="first-rating-panel-box-3">
+            <h4 style="margin-bottom: 0"><%= detailListing.totalReviews %></h4>
+            <p style="margin-bottom: 0">Reviews</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 px-2 pt-2 pb-4 border-bottom">
+        <div class="host-box">
+          <img
+            src="<%= detailListing.owner.picture.url%>"
+            alt="host_profile_pic"
+            class="profile-circle"
+            id="host-profile-picture"
+          />
+          <div class="host-name">
+            <h6 style="margin-bottom: 0">
+              Hosted by <%= detailListing.owner.username%>
+            </h6>
+            <p class="text-body-secondary" style="margin-bottom: 0">
+              Superhost
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 px-3 py-4 border-bottom">
+        <div class="host-box mb-3">
+          <i class="fa-solid fa-star"></i>
+          <div class="host-name">
+            <h6 style="margin-bottom: 0.1rem">
+              Speciality is <%= detailListing.category%>
+            </h6>
+            <p class="text-body-secondary lh-sm" style="margin-bottom: 0">
+              This home is by near <%= detailListing.category%>
+            </p>
+          </div>
+        </div>
+        <div class="host-box mb-3">
+          <i class="fa-solid fa-fan"></i>
+          <div class="host-name">
+            <h6 style="margin-bottom: 0.1rem">Designed for staying cool</h6>
+            <p class="text-body-secondary lh-sm" style="margin-bottom: 0">
+              Beat the heat with A/C and portable fan
+            </p>
+          </div>
+        </div>
+        <div class="host-box mb-3">
+          <i class="fa-solid fa-key"></i>
+          <div class="host-name">
+            <h6 style="margin-bottom: 0.1rem">
+              Exceptionsl check-in experience
+            </h6>
+            <p class="text-body-secondary lh-sm" style="margin-bottom: 0">
+              Recent guests gave the check-in process a 5-star rating.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 py-3 px-2 mb-3 border-bottom">
+        <p class="lead" style="margin-bottom: 0">
+          <%= detailListing.description%>
+        </p>
+      </div>
+      <div class="col-12 p-2 mt-3">
+        <h4 class="mb-3">What this place offers</h4>
+        <div class="row row-cols-1 row-cols-md-2 gy-2 mb-1">
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-wifi"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">
+              High speed Wifi
+            </p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-fire-burner"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">Kitchen</p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">
+              Free parking
+            </p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-paw"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">
+              Pets allowed
+            </p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-shower"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">Shower</p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-tv"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">Smart TV</p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-kitchen-set"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">
+              Cooking basics
+            </p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-fire-extinguisher"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">
+              Fire extinguisher
+            </p>
+          </div>
+          <div class="col-12 col-md-6 place-offers">
+            <div class="text-center place-offer-icons-div">
+              <i class="fa-solid fa-mug-saucer"></i>
+            </div>
+            <p style="margin-bottom: 0" class="text-dark-emphasis">
+              Coffee maker
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 my-3">
+      <div
+        class="col-8 offset-2 col-md-12 offset-md-0 col-xl-10 offset-xl-1 col-xxl-8 offset-xxl-2 sticky-md-top border booking-box shadow-sm py-4 px-3"
+      >
+        <h5 style="margin-bottom: 0">
+          &#8377;<%= detailListing.price.toLocaleString(); %>/night
+        </h5>
+        <p class="text-body-secondary mb-3">Total before taxes</p>
+        <div class="col-12 text-center">
+          <button
+            type="button"
+            class="reserve-btn rounded-pill col-10 fw-semibold"
+          >
+            Reserve
+          </button>
+        </div>
+        <p class="text-body-tertiary text-center" style="margin-bottom: 0">
+          You won't be charged yet
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row row-cols-1 py-3 px-2 border-top mt-3">
+    <div class="col-12 mb-2">
+      <h4>Where you'll be</h4>
+      <p><%= detailListing.location %></p>
+    </div>
+    <div class="col-12 py-2 px-3 mb-3">
+      <div class="col-12 map col-xl-10 offset-xl-1" id="map"></div>
+    </div>
+  </div>
+  <!-- review section -->
+  <div class="row row-cols-1 border-top border-bottom">
+    <div class="col-12 mt-3 px-3 mb-2">
+      <h3 style="margin-bottom: 0">
+        <i class="fa-solid fa-star"></i> <%= detailListing.ratingAvg %> - <%=
+        detailListing.totalReviews %> reviews
+      </h3>
+    </div>
+    <!-- review box -->
+    <div class="col-12 mb-3 review-box">
+      <% for(review of detailListing.reviews) { %>
+      <div class="review-card">
+        <div class="auther-box">
+          <div class="user-pic-name-mini-box">
+            <img
+              src="<%= review.author.picture.url%>"
+              alt=""
+              class="author-profile-circle"
+            />
+            <p class="author-name" style="margin-bottom: 0">
+              <%= review.author.username %>
+            </p>
+          </div>
+          <div>
+            <% if(currUser && review && currUser._id && review.author._id &&
+            currUser._id.equals(review.author._id)) { %>
+            <form
+              action="/listings/<%=detailListing._id%>/review/<%= review._id %>/delete?_method=DELETE"
+              method="post"
+            >
+              <button type="submit" class="btn" style="margin-bottom: 0">
+                Delete
+              </button>
+            </form>
+            <% } %>
+          </div>
+        </div>
+        <div class="rating-star-box">
+          <p
+            class="starability-result"
+            data-rating="<%= review.star %>"
+            style="margin-bottom: 0"
+          ></p>
+        </div>
+        <div class="review-msg-box">
+          <p><%= review.content %></p>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <% if(currUser) { %>
+  <div class="row row-cols-1 mt-2 mb-3">
+    <div class="col-12 px-3 py-2">
+      <h3 style="margin-bottom: 0">Add your review</h3>
+    </div>
+    <form
+      class="col-12 your-review-box needs-validation"
+      action="/listings/<%= detailListing._id %>/review/new"
+      method="post"
+      novalidate
+    >
+      <div>
+        <label for="star" class="form-label px-1">Rating</label>
+        <fieldset class="starability-slot">
+          <input
+            type="radio"
+            id="no-rate"
+            class="input-no-rate"
+            name="star"
+            value="0"
+            checked
+            aria-label="No rating."
+          />
+          <input type="radio" id="first-rate1" name="star" value="1" />
+          <label for="first-rate1" title="Terrible">1 star</label>
+          <input type="radio" id="first-rate2" name="star" value="2" />
+          <label for="first-rate2" title="Not good">2 stars</label>
+          <input type="radio" id="first-rate3" name="star" value="3" />
+          <label for="first-rate3" title="Average">3 stars</label>
+          <input type="radio" id="first-rate4" name="star" value="4" />
+          <label for="first-rate4" title="Very good">4 stars</label>
+          <input type="radio" id="first-rate5" name="star" value="5" />
+          <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+      </div>
+      <div class="form-floating">
+        <textarea
+          class="form-control mb-3"
+          cols="50"
+          style="height: 10rem"
+          placeholder="Leave a comment here"
+          name="content"
+          id="content"
+        ></textarea>
+        <label for="content">Write your precious review</label>
+        <div class="valid-feedback">Thank You!</div>
+      </div>
+
+      <button class="btn btn-success">Add review</button>
+    </form>
+  </div>
+  <% } %> <% if (currUser && detailListing.owner && detailListing.owner._id &&
+  detailListing.owner._id.equals(currUser._id)) { %>
+  <div
+    class="row row-cols-1 align-items-center justify-content-start mb-5 border-top"
+  >
+    <div class="col mt-3 px-3">
+      <h4 style="margin-bottom: 0">Owner Section</h4>
+    </div>
+    <div class="col-12 py-3 d-flex flex-row justify-content-start align-items-center flex-nowrap column-gap-4">
+      <form
+        action="/listings/<%= detailListing._id %>/delete?_method=DELETE"
+        method="post"
+      >
+        <button type="submit" class="btn btn-outline-secondary">Delete</button>
+      </form>
+      <form action="/listings/<%= detailListing._id%>/edit" method="get">
+        <button type="submit" class="btn btn-outline-secondary">Update</button>
+      </form>
+    </div>
+  </div>
+  <% } %>
+</div>
+<script>
+  // Pass coordinates to the script
+  var coordinates = <%- JSON.stringify(detailListing.geometry.coordinates) %>;
+</script>
+<script src="/public/js/map.js"></script>

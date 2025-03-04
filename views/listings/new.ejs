@@ -1,0 +1,144 @@
+<% layout("./layouts/layout.ejs") -%>
+<div class="container edit-main-container flex-grow-1">
+  <div
+    class="row row-cols-1 new-main-row1 justify-content-start align-items-center"
+  >
+    <div class="col-12 text-center edit-main-r1c1">
+      <h3>Create Your Perfect Listing! &#10024;</h3>
+      <p class="text-center text-muted" style="font-size: 14px">
+        Fill in the details to create your perfect listing.
+      </p>
+    </div>
+    <div class="col-12 new-main-r1c2 col-md-8">
+      <form
+        action="/listings/new"
+        method="post"
+        enctype="multipart/form-data"
+        novalidate
+        class="row new-main-row2 gy-2 justify-content-center align-items-center needs-validation"
+      >
+        <div class="col-12 form-box col-md-11">
+          <h6 class="mb-3">Basic Information</h6>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              required
+            />
+            <div class="invalid-feedback">Please add a catchy title.</div>
+            <div class="valid-feedback">Title looks good!</div>
+          </div>
+          <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              rows="3"
+              name="description"
+              required
+            ></textarea>
+          </div>
+          <div class="invalid-feedback">Please write a short description.</div>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="col-12 form-box col-md-11">
+          <h6 class="mb-3">Upload Image</h6>
+          <div>
+            <label for="image" class="form-label">Update image</label>
+            <input
+              type="file"
+              class="form-control"
+              name="image"
+              id="image"
+              accept="image/*"
+            />
+            <div class="invalid-feedback">
+              Please select a valid image file.
+            </div>
+            <div class="valid-feedback">Valid image!</div>
+          </div>
+        </div>
+        <div class="col-12 form-box col-md-11">
+          <h6 class="mb-3">Details</h6>
+          <div class="mb-3">
+            <label for="category" class="form-label"
+              >Center of attraction</label
+            >
+            <select
+              class="form-select"
+              aria-label="Size 3 select example"
+              multiple
+              size="3"
+              name="category"
+            >
+              <option value="Amazing view">Amazing view</option>
+              <option value="Icons">Icons</option>
+              <option value="Beachfront">Beachfront</option>
+              <option value="Lakefront">Lakefront</option>
+              <option value="Mansion">Mansion</option>
+              <option value="Amazing Pool">Amazing Pool</option>
+              <option value="Farms">Farms</option>
+              <option value="Castles">Castles</option>
+              <option value="Rooms">Rooms</option>
+              <option value="Treehouse">Treehouse</option>
+              <option value="Luxury">Luxury</option>
+              <option value="Cabins">Cabins</option>
+              <option value="Tiny homes">Tiny homes</option>
+              <option value="Islands">Islands</option>
+              <option value="Countryside">Countryside</option>
+              <option value="Historical Homes">Historical Homes</option>
+              <option value="Design">Design</option>
+              <option value="Earth Homes">Earth Homes</option>
+              <option value="Artic">Artic</option>
+              <option value="Top Cities">Top Cities</option>
+              <option value="Top of the world">Top of the world</option>
+              <option value="Domes">Domes</option>
+              <option value="Tropical">Tropical</option>
+              <option value="Camping">Camping</option>
+              <option value="Boats">Boats</option>
+              <option value="National Park2">National Park</option>
+              <option value="Caves">Caves</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a center of attraction.
+            </div>
+          </div>
+          <div>
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              name="price"
+              required
+            />
+            <div class="invalid-feedback">Please set a Valid Price.</div>
+          </div>
+        </div>
+        <div class="col-12 form-box col-md-11">
+          <h6 class="mb-3">&#128205; Location</h6>
+          <div>
+            <label for="location" class="form-label">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="location"
+              name="location"
+              required
+            />
+            <div class="invalid-feedback">
+              Location should be a valid place.
+            </div>
+            <div class="valid-feedback">Valid location.</div>
+          </div>
+        </div>
+        <div class="col-12 text-center mt-4">
+          <button type="submit" class="btn signup-btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

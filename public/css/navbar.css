@@ -1,0 +1,178 @@
+.navbar-fluid-box {
+  height: 5rem;
+  background-color: whitesmoke;
+  border: 1px solid #b9b9b9;
+}
+.navbar-container {
+  position: relative;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.navbar-row {
+  position: relative;
+  width: 100%;
+  height: 4rem;
+  flex-grow: 1;
+}
+.logo-col {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.navbar-options-col {
+  position: relative;
+  display: none;
+}
+
+.navbar-options-col a {
+  text-decoration: none;
+  color: black;
+}
+.profile-pic-col {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logo {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  background-image: url("/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.logo-name {
+  color: #ff5a5f;
+  margin-bottom: 0;
+}
+h6 {
+  margin: 0;
+}
+.profile-pic {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid;
+  border-radius: 2rem;
+}
+
+.userMenuBox {
+  position: absolute;
+  width: 16rem;
+  border: 1px solid;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ffeced;
+  top: 6rem;
+  right: 3em;
+  display: none;
+  z-index: 20;
+}
+.userSection {
+  position: relative;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.7rem;
+  padding-bottom: 1rem;
+}
+.userProfilePic {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid;
+  border-radius: 2rem;
+}
+.userInfo {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.optionSection {
+  position: relative;
+  height: 75%;
+  width: 100%;
+  padding-top: 0.5rem;
+}
+.optionSection a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.7rem;
+  padding: 0.5rem 1rem;
+}
+.optionSection a p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .logo-col {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 0.5rem;
+  }
+  .navbar-options-col {
+    position: relative;
+    display: inline;
+  }
+  .profile-pic-col {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .navbar-options-col {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  .navbar-options-col p {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1900px) {
+  .userMenuBox {
+    right: 25em;
+  }
+}
+
+body::-webkit-scrollbar {
+  background: #d3545400;
+  width: 0px;
+  height: 0px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #b2b2b200;
+  border-radius: 0px;
+  height: 0px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #b2b2b200;
+}

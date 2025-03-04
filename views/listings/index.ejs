@@ -1,0 +1,210 @@
+<% layout("./layouts/layout.ejs") -%>
+<!-- main section -->
+<div class="container main-container flex-grow-1">
+  <!-- hero section -->
+  <div
+    class="row img-row-1 row-cols-1 align-items-center justify-content-center"
+  >
+    <form class="col search-col col-md-8 col-xl-6" role="search">
+      <div class="searchBox">
+        <input
+          type="search"
+          class="form-control"
+          id="search-bar"
+          placeholder="Where to ?"
+          name="search"
+        />
+        <button
+          type="submit"
+          class="search-button btn btn-danger rounded-pill px-4"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+    <div class="col text-center">
+      <h1 class="display-4 fw-bold text-light text-center display-heading-font">
+        Find Your Perfect Stay ✨
+      </h1>
+      <p class="lead text-center display-subtext-font">
+        Discover unique places to stay for your next trip
+      </p>
+    </div>
+  </div>
+  <!-- filter tray -->
+  <div
+    class="row filter-row-2 row-cols-2 align-items-center justify-content-center"
+  >
+    <div class="col-10 filter-tray-col text-center col-md-11">
+      <a href="?type=Castles">
+        <button>
+          <i class="fa-brands fa-fort-awesome"></i>
+          <p>Castles</p>
+        </button>
+      </a>
+      <a href="?type=Icons">
+        <button>
+          <i class="fa-solid fa-ranking-star"></i>
+          <p>Icons</p>
+        </button>
+      </a>
+      <a href="?type=Beachfront">
+        <button>
+          <i class="fa-solid fa-umbrella-beach"></i>
+          <p>Beachfront</p>
+        </button>
+      </a>
+      <a href="?type=Lakefront">
+        <button>
+          <i class="fa-solid fa-water"></i>
+          <p>Lakefront</p>
+        </button>
+      </a>
+      <a href="?type=Mansions">
+        <button>
+          <i class="fa-solid fa-landmark"></i>
+          <p>Mansions</p>
+        </button>
+      </a>
+      <a href="?type=Amazing Pools">
+        <button>
+          <i class="fa-solid fa-person-swimming"></i>
+          <p>Amazing Pools</p>
+        </button>
+      </a>
+      <a href="?type=Farms">
+        <button>
+          <i class="fa-solid fa-tractor"></i>
+          <p>Farms</p>
+        </button>
+      </a>
+      <a href="?type=Rooms">
+        <button>
+          <i class="fa-solid fa-door-open"></i>
+          <p>Rooms</p>
+        </button>
+      </a>
+      <a href="?type=Treehouse">
+        <button>
+          <i class="fa-solid fa-tree"></i>
+          <p>Treehouse</p>
+        </button>
+      </a>
+      <a href="?type=Luxury">
+        <button>
+          <i class="fa-solid fa-martini-glass-citrus"></i>
+          <p>Luxury</p>
+        </button>
+      </a>
+      <a href="?type=Cabins">
+        <button>
+          <i class="fa-solid fa-house-chimney-window"></i>
+          <p>Cabins</p>
+        </button>
+      </a>
+      <a href="?type=Tiny homes">
+        <button>
+          <i class="fa-solid fa-house-user"></i>
+          <p>Tiny homes</p>
+        </button>
+      </a>
+      <a href="?type=Islands">
+        <button>
+          <i class="fa-solid fa-fish"></i>
+          <p>Islands</p>
+        </button>
+      </a>
+      <a href="?type=Countrysides">
+        <button>
+          <i class="fa-solid fa-mountain"></i>
+          <p>Countrysides</p>
+        </button>
+      </a>
+      <a href="?type=Historical Homes">
+        <button>
+          <i class="fa-solid fa-landmark-dome"></i>
+          <p>Historical</p>
+        </button>
+      </a>
+      <a href="?type=Design">
+        <button>
+          <i class="fa-solid fa-palette"></i>
+          <p>Design</p>
+        </button>
+      </a>
+      <a href="?type=Artic">
+        <button>
+          <i class="fa-regular fa-snowflake"></i>
+          <p>Artic</p>
+        </button>
+      </a>
+      <a href="?type=Top Cities">
+        <button>
+          <i class="fa-solid fa-city"></i>
+          <p>Top Cities</p>
+        </button>
+      </a>
+      <a href="?type=Camping">
+        <button>
+          <i class="fa-solid fa-tents"></i>
+          <p>Camping</p>
+        </button>
+      </a>
+      <a href="?type=Boats">
+        <button>
+          <i class="fa-solid fa-sailboat"></i>
+          <p>Boats</p>
+        </button>
+      </a>
+    </div>
+    <div class="col-2 tax-col col-md-1">
+      <p style="font-size: 0.71rem; margin-bottom: 0" class="text-truncate">
+        With Tax
+      </p>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="withTaxToggleSwitch"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- listing-cards section -->
+  <div
+    class="row listing-row-3 row-cols-auto align-cen-start justify-content-center g-5 mb-5"
+  >
+    <% if ( listings.length == 0) { %>
+    <img
+      src="no-result-found.png"
+      alt="no result found"
+      id="no-result-found-img"
+    />
+    <% } else{ for (listing of listings) { %>
+
+    <a href="/listings/<%= listing._id %>/details" class="card-wrap-a">
+      <div class="col card">
+        <img src="<%=listing.image.url%>" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <div class="detail-box">
+            <h6 class="card-subtitle c-title text-truncate">
+              <%= listing.location %>
+            </h6>
+            <p class="card-text card-price">
+              &#8377;<%= listing.price.toLocaleString() %>/night
+              <i class="fw-normal gst-text" style="display: none"> +18% gst</i>
+            </p>
+          </div>
+          <div class="rating-box">
+            <p class="card-text fw-medium card-rating">
+              &#11088; <%= listing.ratingAvg %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <% } } %>
+  </div>
+</div>

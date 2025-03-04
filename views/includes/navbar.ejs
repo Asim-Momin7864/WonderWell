@@ -1,0 +1,66 @@
+<!-- Navbar -->
+<div class="container-fluid navbar-fluid-box position-sticky">
+  <div class="container navbar-container">
+    <div class="row navbar-row row-cols-2 row-cols-md-3">
+      <div class="col-6 col-md-2 col-xxl-2 logo-col">
+        <div class="logo"></div>
+        <h6 class="logo-name">WonderWell</h6>
+      </div>
+      <div class="col navbar-options-col col-md-9">
+        <a href="/listings">Home</a>
+        <a href="/listings/new">Airbnb your home</a>
+      </div>
+      <div class="col-6 col-md-1 profile-pic-col">
+        <img
+          alt="user-profile-picture"
+          class="profile-pic userProfilePicture-frontend"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User menu box -->
+
+<div class="userMenuBox shadow">
+  <div class="userSection border-bottom">
+    <img
+      alt="user-profile-picture"
+      class="userProfilePic userProfilePicture-frontend"
+    />
+    <div class="userInfo">
+      <p style="margin-bottom: 0" id="userMenu-username"></p>
+      <p
+        style="margin-bottom: 0"
+        class="d-inline-block text-truncate"
+        style="max-width: 100px"
+        id="userMenu-email"
+      ></p>
+    </div>
+  </div>
+  <div class="optionSection">
+    <a href="/listings">
+      <i class="fa-solid fa-house"></i>
+      <p>Home</p>
+    </a>
+    <a href="/listings/new">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <p>Airbnb your home</p>
+    </a>
+    <% if (currUser) { %>
+    <a href="/users/logout">
+      <i class="fa-solid fa-arrow-right"></i>
+      <p>Logout</p>
+    </a>
+    <% } %> <% if (!currUser) { %>
+    <a href="/users/login">
+      <i class="fa-solid fa-arrow-left"></i>
+      <p>Login</p>
+    </a>
+    <a href="/users/signup">
+      <i class="fa-solid fa-user-plus"></i>
+      <p>Signup</p>
+    </a>
+    <% } %>
+  </div>
+</div>

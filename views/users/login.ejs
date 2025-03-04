@@ -1,0 +1,58 @@
+<% layout("./layouts/layout.ejs") -%>
+
+<div class="container flex-grow-1" id="signup-main-box">
+  <div
+    class="row row-cols-1 row-cols-md-2 align-items-center justify-content-center"
+    id="signup-main-row"
+  >
+    <div class="col col-md-5 signup-img-col section">
+      <div id="signup-background-img"></div>
+    </div>
+    <div class="col col-md-7 form-col">
+      <div class="text-center col-md-10">
+        <h4 id="signup-heading">Welcome back!</h4>
+      </div>
+      <form
+        action="/users/login"
+        method="POST"
+        id="formContent"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="col-12 col-md-10">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            required
+            placeholder="Enter your username"
+          />
+          <div class="valid-feedback">Enter correct username.</div>
+          <div class="invalid-feedback">Invalid username.</div>
+        </div>
+
+        <div class="col-12 col-md-10">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter password"
+            name="password"
+            required
+          />
+          <div class="valid-feedback">Enter correct password.</div>
+          <div class="invalid-feedback">Invalid password.</div>
+        </div>
+        <div class="col-12 text-center col-md-10">
+          <button type="submit" class="btn signup-btn">Login</button>
+        </div>
+        <div class="col-12 text-center link-text col-md-10">
+          <p>Not have account ? <a href="/users/signup">Signup</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
