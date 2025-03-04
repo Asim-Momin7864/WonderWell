@@ -31,7 +31,7 @@ const store = MongoStore.create({
 // error handling for store
 store.on("error", (err) => {
   console.log("ERROR in MONGO SESSION STORE", err);
-})
+});
 
 app.use(
   session({
@@ -61,8 +61,6 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
-  console.log("success Array :-", res.locals.success);
-  console.log("error Array :-", res.locals.error);
   next();
 });
 
@@ -99,7 +97,7 @@ mongoose.set("strictQuery", true);
 main();
 
 // listings routes
-app.use("/listings", listingsMiniApp);
+app.use("/", listingsMiniApp);
 
 // reviews routes
 app.use("/listings/:id/review", reviewsMiniApp);

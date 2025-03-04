@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("/profile")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       const userProfilePicture = document.getElementsByClassName(
         "userProfilePicture-frontend"
       );

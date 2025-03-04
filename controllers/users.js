@@ -27,7 +27,6 @@ module.exports.signupNewUser = async (req, res, next) => {
       },
     });
     let registeredUser = await User.register(newUser, password);
-    console.log("New Registered User :- ", registeredUser);
     // Signup after direct loggged In user
     req.logIn(registeredUser, (err) => {
       if (err) {
@@ -39,11 +38,10 @@ module.exports.signupNewUser = async (req, res, next) => {
           email: req.user.email,
         };
         req.flash("success", "Welcome to Airbnb");
-        res.redirect("/listings");
+        res.redirect("/");
       }
     });
   } catch (error) {
-    console.log(error);
     req.flash("error", error.message);
     res.redirect("/users/signup");
   }
@@ -64,8 +62,7 @@ module.exports.loginUser = async (req, res) => {
     email: req.user.email,
   };
   req.flash("success", "Welcome back to Airbnb!");
-  let redirectURL = res.locals.redirectURL || "/listings";
-  console.log("redirectURl :-", redirectURL);
+  let redirectURL = res.locals.redirectURL || "/";
   res.redirect(redirectURL);
 };
 
@@ -92,7 +89,7 @@ module.exports.logoutUser = (req, res, next) => {
         return res.status(500).json({ message: "Failed to destroy session" });
       }
       res.clearCookie("connect.sid");
-      res.redirect("/listings");
+      res.redirect("/");
     });
   });
 };

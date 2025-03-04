@@ -81,12 +81,9 @@ listingSchema.post("findOneAndDelete", async function (deletedListing) {
       let result = await Review.deleteMany({
         _id: { $in: deletedListing.reviews },
       });
-      console.log("deleted reviews", result);
     } catch (error) {
       throw new ExpressError(400, error);
     }
-  } else {
-    console.log("This Listing is Deleted, It does not contain any reviews");
   }
 });
 

@@ -21,7 +21,7 @@ module.exports.isOwner = async (req, res, next) => {
       "error",
       "You are not Owner of this Listing, So You Dont have permissions to Change"
     );
-    let redirectURL = req.get("referer") || "/listings";
+    let redirectURL = req.get("referer") || "/";
     return res.redirect(redirectURL);
   }
   next();
@@ -62,7 +62,7 @@ module.exports.isReviewOwner = async (req, res, next) => {
   let review = await Review.findById(review_id);
   if (!review.author._id.equals(req.user._id)) {
     req.flash("error", "You are not the Author of this Review");
-    let redirectURL = req.get("referer") || "/listings";
+    let redirectURL = req.get("referer") || "/";
     return res.redirect(redirectURL);
   }
   next();
@@ -78,7 +78,6 @@ module.exports.geoCoder = async (req, res, next) => {
     let lon = parseFloat(data[0].lon);
     let lat = parseFloat(data[0].lat);
     req.body.coordinates = [lat, lon];
-    console.log("updated coordinates :- ", req.body.coordinates);
   } else {
     return next(new ExpressError(400, "Location does not found"));
   }

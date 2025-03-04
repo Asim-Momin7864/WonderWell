@@ -19,7 +19,7 @@ router.get("/", wrapAsync(listingController.index));
 
 // # New Listing
 router
-  .route("/new")
+  .route("/listings/new")
   .get(isLoggedIn, listingController.renderNewListingForm) // GET : New listings
   .post(
     isLoggedIn,
@@ -31,7 +31,7 @@ router
 
 // # Edit
 router
-  .route("/:id/edit")
+  .route("/listings/:id/edit")
   .get(isLoggedIn, isOwner, wrapAsync(listingController.renderEditListingForm)) // GET : Edit Page
   .patch(
     isLoggedIn,
@@ -44,13 +44,13 @@ router
 
 //DELETE : delete listing
 router.delete(
-  "/:id/delete",
+  "/listings/:id/delete",
   isLoggedIn,
   isOwner,
   wrapAsync(listingController.deleteListing)
 );
 
 // GET : details
-router.get("/:id/details", wrapAsync(listingController.showListing));
+router.get("/listings/:id/details", wrapAsync(listingController.showListing));
 
 module.exports = router;

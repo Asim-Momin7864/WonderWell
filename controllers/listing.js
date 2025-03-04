@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 
 module.exports.index = async (req, res, next) => {
   let { type, search } = req.query;
-  console.log(req.query);
   let listings = [];
   if (type) {
     listings = await Listing.find({ category: type }).populate("owner");
@@ -26,7 +25,6 @@ module.exports.index = async (req, res, next) => {
           score: { $meta: "textScore" },
         })
         .populate("owner");
-      console.log(listings);
     } else {
       let Price = Number(search);
       let greaterPrice = Price + 1000;
@@ -40,7 +38,6 @@ module.exports.index = async (req, res, next) => {
   } else {
     listings = await Listing.find().populate("owner");
   }
-  console.log("listings from index controller -->", listings);
   listings = await Promise.allSettled(
     listings.map(async (listing) => {
       // rating avg by mongoDB pipling
@@ -78,8 +75,6 @@ module.exports.index = async (req, res, next) => {
   listings = listings.map((result) => {
     return result.value;
   });
-
-  console.log(listings);
   res.render("./listings/index.ejs", { listings });
 };
 
@@ -111,9 +106,8 @@ module.exports.addNewListing = async (req, res, next) => {
     },
   });
   let newlisting = await listing.save();
-  console.log("New Listing *Test :- ", newlisting);
   req.flash("success", "New Listing is Created!");
-  res.redirect("/listings");
+  res.redirect("/");
 };
 
 module.exports.renderEditListingForm = async (req, res) => {
@@ -121,7 +115,7 @@ module.exports.renderEditListingForm = async (req, res) => {
   let listing = await Listing.findById(id);
   if (!listing) {
     req.flash("error", "The listing you want is Deleted");
-    return res.redirect("/listings");
+    return res.redirect("/");
   }
 
   let previewImage = listing.image.url;
@@ -154,7 +148,6 @@ module.exports.editListing = async (req, res) => {
     updatedListing.image = { url, filename };
     await updatedListing.save();
   }
-  console.log("updated Listing :-", updatedListing);
   req.flash("success", "Listing is Updated!");
   res.redirect(`/listings/${id}/details`);
 };
@@ -167,9 +160,8 @@ module.exports.deleteListing = async (req, res) => {
       runValidators: true,
     }
   );
-  console.log("Deleted Listing *Test :- ", deletedListing);
   req.flash("success", "Listing is Deleted!");
-  res.redirect("/listings");
+  res.redirect("/");
 };
 
 module.exports.showListing = async (req, res) => {
@@ -184,7 +176,6 @@ module.exports.showListing = async (req, res) => {
       },
     });
   let totalReviews = detailListing.reviews.length;
-  console.log("totalReview - ", totalReviews);
   detailListing.totalReviews = totalReviews;
   let ratingAvg = await Listing.aggregate([
     { $match: { _id: new mongoose.Types.ObjectId(id) } },
@@ -211,14 +202,12 @@ module.exports.showListing = async (req, res) => {
     },
   ]);
 
-  console.log("rating average of reviews --->", ratingAvg);
   ratingAvg = ratingAvg?.[0]?.avgCount ?? 0;
   detailListing.ratingAvg = ratingAvg;
 
   if (!detailListing) {
     req.flash("error", "The listing you want is Deleted");
-    return res.redirect("/listings");
+    return res.redirect("/");
   }
-  console.log("detailListing.reviews", detailListing.reviews);
   res.render("./listings/details.ejs", { detailListing });
 };
